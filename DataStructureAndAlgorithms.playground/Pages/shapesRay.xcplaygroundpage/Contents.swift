@@ -5,7 +5,7 @@ import Foundation
 // https://www.raywenderlich.com/119881/enums-structs-and-classes-in-swift
 
 enum ColorName: String {
-    case black
+    case black = "black"
     case silver
     case grey
     case white
@@ -17,10 +17,16 @@ enum ColorName2: String {
 }
 
 
-
-enum CSSColor {
+enum CSSColor: CustomStringConvertible {
+    
     case named(ColorName)
     case rgb(UInt8, UInt8, UInt8)
+}
+
+extension CSSColor {
+    enum ColorName2: String {
+        case black, silver, grey, white
+    }
 }
 
 
@@ -28,7 +34,7 @@ extension CSSColor {
     var description: String {
         switch self {
             case .named(let colorName):
-                return colorName.rawValue
+                return "fuck this shit \(colorName.rawValue)"
             case.rgb(let r, let g, let b):
                 return String(format: "#%02X%02X%02X", r, g, b)
         }
@@ -44,17 +50,18 @@ extension CSSColor {
 
 
 
-let color1 = CSSColor.named(.black)
+let color1 = CSSColor.named(.black).description
 let color2 = CSSColor.rgb(10, 101, 100)
 let color3 = CSSColor(grayScale: 200)
+let color4 = CSSColor.ColorName2.init(rawValue: "red")
 
 
-color1.description
-color2.description
-color3.description
+//color1.description
+//color2.description
+//color3.description
 
 enum Math {
-   static var phi = 12121212
+    static var phi = 12121212
 }
 
 Math.phi = 3343434
@@ -84,6 +91,7 @@ struct Circle: Drawable {
     
     func draw(with context: DrawingContext) {
         context.draw(self)
+
     }
 }
 

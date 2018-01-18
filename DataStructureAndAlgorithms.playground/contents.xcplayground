@@ -19,5 +19,8 @@
         <page name='genericsRay'/>
         <page name='mergeSort'/>
         <page name='breadthFirstSearch'/>
+        <page name='learnBlocks'/>
+        <page name='Tuples'/>
+        <page name='SwiftProtocols'/>
     </pages>
 </playground>
